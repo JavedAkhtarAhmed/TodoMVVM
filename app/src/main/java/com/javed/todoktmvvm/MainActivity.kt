@@ -19,7 +19,6 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.javed.todoktmvvm.adapters.FragmentAdapter
 import com.javed.todoktmvvm.databinding.ActivityMainBinding
 import com.javed.todoktmvvm.databinding.AddTodoDialogBinding
-import com.javed.todoktmvvm.interfaces.ActivityToTodayFragmentInterface
 import com.javed.todoktmvvm.modelClasses.TodoResponseItem
 import com.javed.todoktmvvm.viewModels.MainViewModel
 import com.javed.todoktmvvm.viewModels.TodayFragmentViewModel
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mainViewModel: MainViewModel
     lateinit var todayFragmentViewModel: TodayFragmentViewModel
-    lateinit var activityToTodayFragmentInterface: ActivityToTodayFragmentInterface
 
 
     lateinit var binding: ActivityMainBinding
@@ -45,8 +43,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
         val repository = (application as TodoApplication).todoRepository
-//        mainViewModel =
-//            ViewModelProvider(this, MainViewModelFactory(repository))[MainViewModel::class.java]
         todayFragmentViewModel = ViewModelProvider(
             this,
             TodayFragmentViewModelFactory(repository)

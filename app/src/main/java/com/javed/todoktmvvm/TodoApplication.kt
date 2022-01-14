@@ -15,8 +15,7 @@ class TodoApplication : Application() {
     }
 
     private fun initialize() {
-        val quoteService = RetrofitHelper.getInstance().create(UserServices::class.java)
-//        val database = QuoteDatabase.getDatabase(applicationContext)
-        todoRepository = TodoRepository(quoteService, applicationContext)
+        val todoService = RetrofitHelper.getInstance().create(UserServices::class.java)
+        todoRepository = TodoRepository(todoService, applicationContext)
     }
 }
